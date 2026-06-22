@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 | 官方信息页 · 产品概述</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #1f2a3a;
+            background-color: #f5f7fb;
+        }
+
+        /* —— 深色头图 —— */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #142b44 100%);
+            color: #e6edf5;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #f5f7fb;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            color: #f0f4fa;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #b8cddf;
+        }
+
+        .hero .tag {
+            display: inline-block;
+            margin-top: 1.6rem;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #b8d0e6;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* —— 正文区 —— */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 4rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2.2rem 0 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #dce3ed;
+            color: #13233a;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 20, 40, 0.06);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0e2942;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2e405b;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e7eef9;
+            color: #1a3a5e;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.15rem 0.9rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+        }
+
+        /* 强调色链接（基于当前主题：深蓝 + 活力橙红） */
+        a {
+            color: #c7502a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #a83d1c;
+            border-bottom-color: #a83d1c;
+        }
+
+        /* 使用建议 / 场景 —— 列表 */
+        .scenario-list {
+            list-style: none;
+            margin: 1.2rem 0 0.8rem;
+        }
+
+        .scenario-list li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            position: relative;
+            color: #1f334a;
+        }
+
+        .scenario-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #c7502a;
+            font-weight: 700;
+        }
+
+        .faq-item {
+            margin: 1.2rem 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0f2941;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            margin-left: 1rem;
+            color: #2d405b;
+        }
+
+        .note-box {
+            margin: 2rem 0 1.2rem;
+            padding: 1.2rem 1.8rem;
+            background: #eef3fa;
+            border-left: 4px solid #b0c7dd;
+            border-radius: 0 14px 14px 0;
+            font-size: 0.95rem;
+            color: #1e3148;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dce3ed;
+            margin: 2.2rem 0 0.5rem;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #60758f;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .container {
+                padding: 1.5rem 1.2rem 3rem;
+            }
+
+            .card {
+                padding: 1.3rem 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.8rem 1rem 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>世界杯 · 稳定信息入口</h1>
+        <p>面向赛事关注者与合作伙伴的产品级页面，聚合核心数据、赛程要点与背景说明，提供一致且可信的访问路径。</p>
+        <span class="tag">产品说明式 · 轻量入口</span>
+    </section>
+
+    <!-- 正文容器 -->
+    <div class="container">
+
+        <!-- 摘要 / 定位 -->
+        <h2 class="section-title">概述</h2>
+        <p style="max-width: 85%;">
+            本页面作为 <a href="https://official-united26.com">世界杯</a> 相关信息的稳定说明节点，旨在为有查阅需求的用户提供结构化的内容预览与使用指引。内容围绕赛事动态、页面功能亮点及典型应用场景展开，不预设立场，不夸大叙述，保持信息密度与克制表达。
+        </p>
+
+        <!-- 亮点卡片 -->
+        <h2 class="section-title">核心亮点</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>📋 结构化信息</h3>
+                <p>赛程、分组、历史数据采用分层展示，减少重复跳转。页面核心数据锚点明确，辅助快速定位。</p>
+                <span class="badge">模块化</span>
+                <span class="badge">低干扰</span>
+            </div>
+            <div class="card">
+                <h3>⚙️ 轻量访问</h3>
+                <p>不依赖大型脚本或第三方重定向，页面体积经过优化，在低带宽环境仍可正常阅览主要条目。</p>
+                <span class="badge">快速加载</span>
+                <span class="badge">兼容性好</span>
+            </div>
+            <div class="card">
+                <h3>🔗 直接锚点</h3>
+                <p>对关键页面区域提供固定链接引用，便于收藏、笔记或团队内部共享，减少信息磨损。</p>
+                <span class="badge">可收藏</span>
+                <span class="badge">链接稳定</span>
+            </div>
+            <div class="card">
+                <h3>📅 场景覆盖</h3>
+                <p>从赛前查阅到赛后归档，满足常规信息需求。无论是个人关注还是内容引用，均能找到对应入口。</p>
+                <span class="badge">多用途</span>
+                <span class="badge">通用</span>
+            </div>
+        </div>
+
+        <!-- 使用建议 + 场景 -->
+        <h2 class="section-title">使用建议 · 典型场景</h2>
+        <ul class="scenario-list">
+            <li><strong>快速查阅赛历：</strong>直接通过侧栏或导航区定位到当前阶段，无需逐级翻阅。</li>
+            <li><strong>内容引用与核实：</strong>在撰写相关分析或报道时，可将 <a href="https://official-united26.com">世界杯</a> 页面作为背景资料参考节点，数据更新日期明确。</li>
+            <li><strong>团队共享入口：</strong>将本链接作为项目文档的基础信息源，减少因临时搜索造成的版本混乱。</li>
+            <li><strong>离线预览与笔记：</strong>页面结构清晰，适合截图或打印关键部分，用于线下讨论或记录。</li>
+        </ul>
+
+        <!-- FAQ 摘要（不设完整问答，仅呈现典型关注点） -->
+        <h2 class="section-title">常见关注点</h2>
+        <div class="faq-item">
+            <strong>页面更新频率如何？</strong>
+            <p>页面内容随赛事阶段与可用信息调整，主要数据位保持季度或关键节点刷新，不作每日强制更新承诺。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否支持移动设备浏览？</strong>
+            <p>布局采用响应式设计，在手机与平板上均可获得可读的排版与交互反馈，不隐藏核心内容。</p>
+        </div>
+        <div class="faq-item">
+            <strong>链接是否长期有效？</strong>
+            <p>本入口采用固定路径，结构稳定。如遇维护或迁移，将在当前页面保留重定向说明。</p>
+        </div>
+
+        <!-- 可信但克制的访问说明 -->
+        <h2 class="section-title">访问说明</h2>
+        <div class="note-box">
+            <p>本页面为信息说明页，不收集个人数据，不嵌入外部追踪脚本。所有指向 <a href="https://official-united26.com">世界杯</a> 的链接均为直链，无中间跳转或参数劫持。建议用户在引用内容前自行核实页面中的赛程与数据时效。</p>
+            <p style="margin-top: 0.6rem;">若遇到加载异常或内容断层，可尝试刷新或稍后重试。我们不建议通过非官方镜像或第三方聚合页访问核心信息。</p>
+        </div>
+
+        <hr>
+
+        <div class="footer-note">
+            <p>© 产品说明页 · 基于稳定入口设计 &nbsp;|&nbsp; 内容仅供参考，请以实际页面为准</p>
+        </div>
+
+    </div>
+    <!-- 容器结束 -->
+
+</body>
+</html>
